@@ -1,0 +1,45 @@
+{
+  "name": "open-music-backend",
+  "version": "1.0.0",
+  "description": "OpenMusic API use for Dicoding Intermediate Submission",
+  "main": "index.js",
+  "scripts": {
+    "start-prod": "NODE_ENV=production node ./src/server.js",
+    "start-dev": "nodemon ./src/server.js",
+    "lint": "eslint ./src",
+    "migrate": "node-pg-migrate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sincanmaulanaa/open-music-backend.git"
+  },
+  "keywords": [
+    "OpenMusic",
+    "API",
+    "backend",
+    "Dicoding",
+    "RESTful",
+    "API",
+    "Hapi"
+  ],
+  "author": "Sincan Maulana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sincanmaulanaa/open-music-backend/issues"
+  },
+  "homepage": "https://github.com/sincanmaulanaa/open-music-backend#readme",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.2",
+    "auto-bind": "^4.0.0",
+    "dotenv": "^16.3.1",
+    "joi": "^17.9.2",
+    "nanoid": "^4.0.2",
+    "node-pg-migrate": "^6.2.2",
+    "pg": "^8.11.1"
+  }
+}
