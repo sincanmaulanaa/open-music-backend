@@ -1,11 +1,11 @@
+# OpenMusic API v1.0.0
+
 ## DevDependencies
----
 - eslint
 - eslint-config-google
 - nodemon
 
 ## Dependencies
----
 - [hapi](https://hapi.dev/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [joi](https://github.com/hapijs/joi)
@@ -15,21 +15,18 @@
 - [auto-bind@4](https://www.npmjs.com/package/auto-bind)
 
 ## Installations
----
 `npm init -y`
 `npm install <package_name>`
 `npm run start-dev`
 
 
 ## Runner Scripts
----
 - "start-prod": "NODE_ENV=production node ./src/server.js"
 - "start-dev": "nodemon ./src/server.js"
 - "lint": "eslint ./src"
 - "migrate": "node-pg-migrate"
 
 ## Folder Structures
----
 ```
 ├── src
 │   ├── api
@@ -48,7 +45,6 @@
 ```
 
 ## Steps-by-steps
----
 1. Create database openmusic
 2. Initialize project
 3. Create migrations
@@ -58,7 +54,6 @@
 7. Production
 
 ## TO-DO
----
 ### 1. Development
 - [ ] Initalize project
 - [ ] Install all needed dependencies
@@ -191,14 +186,12 @@
 ```
 
 ### 2. API Testing
-----
 - [ ] [Postman OpenMusic API V1 Test Collection dan Environment](https://github.com/dicodingacademy/a271-backend-menengah-labs/raw/099-shared-files/03-submission-content/01-open-music-api-v1/OpenMusic%20API%20V1%20Test.zip)
 - [ ] Import OpenMusic collection ke Postman Collection
 - [ ] Import OpenMusic environment ke Postman Environment
 - [ ] Test all of Endpoints use *Postman* *Runner*
 
 ### 3. Deployment
----
 - [ ] Create new role in AWS IAM
 - [ ] Add permissions for EC2FullAccess and RDSFullAccess
 - [ ] Login to the new account that already created
