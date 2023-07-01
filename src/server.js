@@ -1,9 +1,14 @@
 require('dotenv').config();
 
 const Hapi = require('@hapi/hapi');
+const albums = require('./api/albums');
 const ClientError = require('./exceptions/ClientError');
+const AlbumsService = require('./services/AlbumsService');
+const AlbumsValidator = require('./validator/albums');
 
 const init = async () => {
+  const albumsService = new AlbumsService();
+
   const server = Hapi.server({
     port: process.env.PORT,
     host: process.env.HOST,
@@ -11,6 +16,14 @@ const init = async () => {
       cors: {
         origin: ['*'],
       },
+    },
+  });
+
+  await server.register({
+    plugin: albums,
+    options: {
+      service: albumsService,
+      validator: AlbumsValidator,
     },
   });
 
