@@ -7,34 +7,28 @@ class AuthenticationsService {
   }
 
   async addRefreshToken(token) {
-    const query = {
+    await this._pool.query({
       text: 'INSERT INTO authentications VALUES($1)',
       values: [token],
-    };
-
-    await this._pool.query(query);
+    });
   }
 
   async verifyRefreshToken(token) {
-    const query = {
+    const result = await this._pool.query({
       text: 'SELECT token FROM authentications WHERE token = $1',
       values: [token],
-    };
+    });
 
-    const result = await this._pool.query(query);
-
-    if (!result.rows.length) {
+    if (!result.rowCount) {
       throw new InvariantError('Refresh token tidak valid');
     }
   }
 
   async deleteRefreshToken(token) {
-    const query = {
+    await this._pool.query({
       text: 'DELETE FROM authentications WHERE token = $1',
       values: [token],
-    };
-
-    await this._pool.query(query);
+    });
   }
 }
 

@@ -73,7 +73,7 @@ class PlaylistsService {
 
   async getSongsFromPlaylist(playlistId) {
     const playlistsQuery = {
-      text: `SELECT playlists.id, playlist.name, users.username FROM playlists
+      text: `SELECT playlists.id, playlists.name, users.username FROM playlists
 			LEFT JOIN users ON users.id = playlists.owner
 			WHERE playlists.id = $1`,
       values: [playlistId],
@@ -110,7 +110,7 @@ class PlaylistsService {
 
   async addActivityToPlaylist(playlistId, songId, userId, action) {
     const query = {
-      text: 'INSERT INTO playlist_song_activites(playlist_id, song_id, user_id, action) VALUES($1, $2, $3, $4) RETURNING id',
+      text: 'INSERT INTO playlist_song_activities(playlist_id, song_id, user_id, action) VALUES($1, $2, $3, $4) RETURNING id',
       values: [playlistId, songId, userId, action],
     };
 
@@ -123,10 +123,10 @@ class PlaylistsService {
 
   async getActivitiesFromPlaylist(playlistId) {
     const query = {
-      text: `SELECT users.username, songs.title, action, time FROM playlist_song_activites
-			JOIN songs ON songs.id = playlist_song_activites.song_id
-			JOIN users ON users.id = playlist_song_activites.user_id
-			WHERE playlist_song_activites.playlist_id = $1`,
+      text: `SELECT users.username, songs.title, action, time FROM playlist_song_activities
+			JOIN songs ON songs.id = playlist_song_activities.song_id
+			JOIN users ON users.id = playlist_song_activities.user_id
+			WHERE playlist_song_activities.playlist_id = $1`,
       values: [playlistId],
     };
 

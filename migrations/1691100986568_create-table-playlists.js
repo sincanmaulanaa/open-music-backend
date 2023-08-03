@@ -5,16 +5,20 @@ exports.up = (pgm) => {
       primaryKey: true,
     },
     name: {
-      type: 'VARCHAR(50)',
+      type: 'TEXT',
       notNull: true,
     },
     owner: {
       type: 'VARCHAR(50)',
       notNull: true,
-      references: 'users(id)',
-      onDelete: 'CASCADE',
     },
   });
+
+  pgm.addConstraint(
+    'playlists',
+    'fk_playlists.owner_users.id',
+    'FOREIGN KEY(owner) REFERENCES users(id) ON DELETE CASCADE'
+  );
 };
 
 exports.down = (pgm) => {
