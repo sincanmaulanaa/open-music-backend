@@ -22,10 +22,10 @@ class AuthenticationsHandler {
         password
       );
 
-      const accessToken = await this._tokenManager.generateAccessToken({
+      const accessToken = this._tokenManager.generateAccessToken({
         id,
       });
-      const refreshToken = await this._tokenManager.generateRefreshToken({
+      const refreshToken = this._tokenManager.generateRefreshToken({
         id,
       });
 
